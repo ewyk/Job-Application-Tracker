@@ -16,9 +16,10 @@ public class JobEntry {
 	private Connection connect;
 	private Statement sqlStatement;
 	
-	public JobEntry(int job_entry_id, String company, String position, String location, String industry, String notes) {
+	//MySQL auto increments job_entry_id, so id might not be needed in constructor
+	public JobEntry(String company, String position, String location, String industry, String notes) {
 		super();
-		this.job_entry_id = job_entry_id;
+//		this.job_entry_id = job_entry_id;
 		this.company = company;
 		this.position = position;
 		this.location = location;
@@ -50,6 +51,7 @@ public class JobEntry {
 		return notes;
 	}
 	
+	//this method connects to db and creates statements to add values to table
 	public void addJobEntry() {
 		try {
 			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/job_tracker_db", "root", "PontiacFire2");
