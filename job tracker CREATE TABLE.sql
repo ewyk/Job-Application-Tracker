@@ -8,6 +8,8 @@ CREATE TABLE job_entry (
 	PRIMARY KEY (job_entry_id)
 );
 
+ALTER TABLE job_entry AUTO_INCREMENT=1;
+
 CREATE TABLE progress (
 	progress_id					INT			NOT NULL	AUTO_INCREMENT,
     application_unfinished		BOOLEAN		NOT NULL,
