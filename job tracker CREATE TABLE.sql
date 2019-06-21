@@ -1,10 +1,10 @@
 CREATE TABLE job_entry (
-	job_entry_id	INT			NOT NULL	AUTO_INCREMENT,
-    company			VARCHAR(30)	NOT NULL,
-    position		VARCHAR(30)	NOT NULL,
-    location		VARCHAR(30) NOT NULL,
+	job_entry_id	INT				NOT NULL	AUTO_INCREMENT,
+    company			VARCHAR(50)		NOT NULL,
+    position		VARCHAR(50)		NOT NULL,
+    location		VARCHAR(30) 	NOT NULL,
     industry		VARCHAR(30),
-    notes			VARCHAR(30),
+    notes			VARCHAR(100),
 	PRIMARY KEY (job_entry_id)
 );
 
