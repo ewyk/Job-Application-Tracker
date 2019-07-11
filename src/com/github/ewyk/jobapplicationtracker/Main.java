@@ -3,10 +3,20 @@ package com.github.ewyk.jobapplicationtracker;
 public class Main {
 
 	public static void main(String[] args) {
-		JobEntry job1 = new JobEntry("Amazon", "SDE", "Seattle", "tech industry", "");
+		//press a button, which will create instance of job entry
+		JobEntry job1 = new JobEntry("Square", "mobile developer", "New York, New York", "tech industry", "");
 		
-		job1.addJobEntry();
+		//press another button, which will add new entry to db
+//		job1.addJobEntry();
 		
+		//press refresh button to see newly added job within application?
+//		System.out.println("PRINTING TABLE...");
+//		job1.printTable();
+		
+		//press button to delete selected entry
+//		job1.deleteJobEntry(4);
+		
+		job1.printTable();
 
 	}
 
