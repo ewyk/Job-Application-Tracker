@@ -1,4 +1,4 @@
-package com.github.ewyk.jobapplicationtracker;
+package com.github.japanesecoffee.jobapplicationtracker;
 import java.util.Date;
 
 public class Progress {
