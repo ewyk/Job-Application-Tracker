@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchorpane_parent" prefHeight="410.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.japanesecoffee.jobapplicationtracker.Table">
+   <children>
+      <Pane id="pane_top" prefHeight="60.0" prefWidth="745.0">
+         <children>
+            <Label id="label_title" layoutX="14.0" layoutY="22.0" text="Job App Tracker">
+               <font>
+                  <Font name="MS Outlook" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane id="anchorpane_center" layoutX="6.0" layoutY="60.0" prefHeight="350.0" prefWidth="745.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <AnchorPane id="anchorpane_left" layoutX="20.0" layoutY="14.0" prefHeight="330.0" prefWidth="220.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <JFXTabPane id="tabpane_left" layoutX="5.0" layoutY="5.0" prefHeight="320.0" prefWidth="210.0">
+                     <tabs>
+                        <Tab id="tab_jobentry" text="job entry">
+                          <content>
+                            <AnchorPane id="anchorpane_jobentry" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXTextField id="txt_company" layoutX="37.0" layoutY="40.0" promptText="Company" />
+                                    <JFXTextField id="txt_position" layoutX="37.0" layoutY="78.0" promptText="Position" />
+                                    <JFXTextField id="txt_location" layoutX="37.0" layoutY="115.0" promptText="Location" />
+                                    <JFXTextField id="txt_industry" layoutX="37.0" layoutY="148.0" promptText="Industry" />
+                                    <JFXTextField id="txt_notes" layoutX="37.0" layoutY="185.0" promptText="Notes" />
+                                    <JFXButton id="btn_new" buttonType="RAISED" layoutX="2.0" layoutY="247.0" text="New" />
+                                    <JFXButton id="btn_save" buttonType="RAISED" layoutX="50.0" layoutY="247.0" text="Save" />
+                                    <JFXButton id="btn_update" buttonType="RAISED" layoutX="97.0" layoutY="247.0" text="Update" />
+                                    <JFXButton id="btn_delete" buttonType="RAISED" layoutX="159.0" layoutY="247.0" text="Delete" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab id="tab_progress" text="progress">
+                          <content>
+                            <AnchorPane id="anchorpane_progress" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXToggleButton id="toggle_application" layoutX="16.0" layoutY="14.0" text="Application Finished" />
+                                    <JFXDatePicker id="date_applied" layoutX="24.0" layoutY="72.0" promptText="Applied" />
+                                    <JFXDatePicker id="date_first" layoutX="24.0" layoutY="112.0" promptText="First Interview" />
+                                    <JFXDatePicker id="date_final" layoutX="24.0" layoutY="153.0" promptText="Final Interview" />
+                                    <JFXDatePicker id="date_offerextended" layoutX="24.0" layoutY="192.0" promptText="Offer Extended" />
+                                    <JFXDatePicker id="date_offeraccepted" layoutX="24.0" layoutY="232.0" promptText="Offer Accepted" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+               </children></AnchorPane>
+            <AnchorPane id="anchorpane_right" layoutX="246.0" layoutY="14.0" prefHeight="330.0" prefWidth="495.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <children>
+                  <TableView id="tblview" layoutX="5.0" layoutY="6.0" prefHeight="320.0" prefWidth="485.0">
+                    <columns>
+                      <TableColumn id="column_id" prefWidth="40.0" text="id" />
+                      <TableColumn id="column_company" text="company" />
+                        <TableColumn id="column_position" text="position" />
+                        <TableColumn id="column_location" text="location" />
+                        <TableColumn id="column_industry" text="industry" />
+                        <TableColumn id="column_notes" prefWidth="125.0" text="notes" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
