@@ -1,51 +1,58 @@
 package com.github.japanesecoffee.jobapplicationtracker;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.sql.*;
 
 public class JobEntry {
-	private static int job_entry_id;
-	private String company;
-	private String position;
-	private String location;
-	private String industry;
-	private String notes;
-	private Progress progressBar;
-	
-	//MySQL auto increments job_entry_id, so id might not be needed in constructor
-//	public JobEntry(String company, String position, String location, String industry, String notes) {
-//		super();
-////		this.job_entry_id = job_entry_id;
-//		this.company = company;
-//		this.position = position;
-//		this.location = location;
-//		this.industry = industry;
-//		this.notes = notes;
-//	}
+	private final IntegerProperty job_entry_id;
+	private final StringProperty company;
+	private final StringProperty position;
+	private final StringProperty location;
+	private final StringProperty industry;
+	private final StringProperty notes;
+//	private Progress progressBar;
 
-	public int getJob_entry_id() {
+	public JobEntry(IntegerProperty job_entry_id, String company, String position, String location, String industry, String notes) {
+		this.job_entry_id = job_entry_id;
+		this.company = new SimpleStringProperty(company);
+		this.position = new SimpleStringProperty(position);
+		this.location = new SimpleStringProperty(location);
+		this.industry = new SimpleStringProperty(industry);
+		this.notes = new SimpleStringProperty(notes);
+//		this.progressBar = progressBar;
+	}
+
+	public IntegerProperty getJob_entry_id() {
 		return job_entry_id;
 	}
 
-	public String getCompany() {
+	public StringProperty getCompany() {
 		return company;
 	}
 
-	public String getPosition() {
+	public StringProperty getPosition() {
 		return position;
 	}
 
-	public String getLocation() {
+	public StringProperty getLocation() {
 		return location;
 	}
 
-	public String getIndustry() {
+	public StringProperty getIndustry() {
 		return industry;
 	}
 
-	public String getNotes() {
+	public StringProperty getNotes() {
 		return notes;
 	}
-	
+
+//	public Progress getProgressBar() {
+//		return progressBar;
+//	}
+
 	//this method connects to db and creates statements to add values to table
 	public void addJobEntry(String company, String position, String location, String industry, String notes) {
 		//try-with-resources statement automatically closes declared resources when try block exits

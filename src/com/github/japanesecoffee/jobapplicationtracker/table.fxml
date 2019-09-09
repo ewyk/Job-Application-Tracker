@@ -13,51 +13,51 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anchorpane_parent" prefHeight="600.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.japanesecoffee.jobapplicationtracker.TableController">
+<AnchorPane fx:id="anchorpane_parent" prefHeight="600.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane id="pane_top" prefHeight="60.0" prefWidth="1150.0">
+      <Pane fx:id="pane_top" prefHeight="60.0" prefWidth="1150.0">
          <children>
-            <Label id="label_title" layoutX="14.0" layoutY="22.0" text="Job App Tracker">
+            <Label fx:id="label_title" layoutX="14.0" layoutY="22.0" text="Job App Tracker">
                <font>
                   <Font name="MS Outlook" size="20.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <AnchorPane id="anchorpane_center" layoutX="6.0" layoutY="60.0" prefHeight="540.0" prefWidth="1150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+      <AnchorPane fx:id="anchorpane_center" layoutX="6.0" layoutY="60.0" prefHeight="540.0" prefWidth="1150.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <AnchorPane id="anchorpane_left" layoutX="20.0" layoutY="14.0" prefHeight="520.0" prefWidth="220.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="915.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="anchorpane_left" layoutX="20.0" layoutY="14.0" prefHeight="520.0" prefWidth="220.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="915.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <JFXTabPane id="tabpane_left" layoutX="5.0" layoutY="5.0" prefHeight="510.0" prefWidth="210.0">
+                  <JFXTabPane fx:id="tabpane_left" layoutX="5.0" layoutY="5.0" prefHeight="510.0" prefWidth="210.0">
                      <tabs>
-                        <Tab id="tab_jobentry" text="job entry">
+                        <Tab fx:id="tab_jobentry" text="job entry">
                           <content>
-                            <AnchorPane id="anchorpane_jobentry" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <AnchorPane fx:id="anchorpane_jobentry" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXTextField id="txt_company" layoutX="37.0" layoutY="40.0" promptText="Company" />
-                                    <JFXTextField id="txt_position" layoutX="37.0" layoutY="114.0" promptText="Position" />
-                                    <JFXTextField id="txt_location" layoutX="37.0" layoutY="192.0" promptText="Location" />
-                                    <JFXTextField id="txt_industry" layoutX="37.0" layoutY="258.0" promptText="Industry" />
-                                    <JFXTextField id="txt_notes" layoutX="37.0" layoutY="329.0" promptText="Notes" />
-                                    <JFXButton id="btn_new" buttonType="RAISED" layoutY="409.0" text="New" />
-                                    <JFXButton id="btn_save" buttonType="RAISED" layoutX="47.0" layoutY="409.0" text="Save" />
-                                    <JFXButton id="btn_update" buttonType="RAISED" layoutX="95.0" layoutY="409.0" text="Update" />
-                                    <JFXButton id="btn_delete" buttonType="RAISED" layoutX="159.0" layoutY="409.0" text="Delete" />
+                                    <JFXTextField fx:id="txt_company" layoutX="37.0" layoutY="40.0" promptText="Company" />
+                                    <JFXTextField fx:id="txt_position" layoutX="37.0" layoutY="114.0" promptText="Position" />
+                                    <JFXTextField fx:id="txt_location" layoutX="37.0" layoutY="192.0" promptText="Location" />
+                                    <JFXTextField fx:id="txt_industry" layoutX="37.0" layoutY="258.0" promptText="Industry" />
+                                    <JFXTextField fx:id="txt_notes" layoutX="37.0" layoutY="329.0" promptText="Notes" />
+                                    <JFXButton fx:id="btn_new" buttonType="RAISED" layoutY="409.0" text="New" />
+                                    <JFXButton fx:id="btn_save" buttonType="RAISED" layoutX="47.0" layoutY="409.0" text="Save" />
+                                    <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="95.0" layoutY="409.0" text="Update" />
+                                    <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="159.0" layoutY="409.0" text="Delete" />
                                  </children>
                               </AnchorPane>
                           </content>
                         </Tab>
-                        <Tab id="tab_progress" text="progress">
+                        <Tab fx:id="tab_progress" text="progress">
                           <content>
-                            <AnchorPane id="anchorpane_progress" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <AnchorPane fx:id="anchorpane_progress" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXToggleButton id="toggle_application" layoutX="16.0" layoutY="14.0" text="Application Finished" />
-                                    <JFXDatePicker id="date_applied" layoutX="24.0" layoutY="83.0" promptText="Applied" />
-                                    <JFXDatePicker id="date_interview1" layoutX="24.0" layoutY="143.0" promptText="Interview 1" />
-                                    <JFXDatePicker id="date_interview2" layoutX="24.0" layoutY="198.0" promptText="Interview 2" />
-                                    <JFXDatePicker id="date_interview3" layoutX="24.0" layoutY="256.0" promptText="Interview 3" />
-                                    <JFXDatePicker id="date_offerext" layoutX="24.0" layoutY="310.0" promptText="Offer extended" />
-                                    <JFXDatePicker id="date_accept" layoutX="24.0" layoutY="365.0" promptText="Accept/Reject" />
+                                    <JFXToggleButton fx:id="toggle_application" layoutX="16.0" layoutY="14.0" text="Application Finished" />
+                                    <JFXDatePicker fx:id="date_applied" layoutX="24.0" layoutY="83.0" promptText="Applied" />
+                                    <JFXDatePicker fx:id="date_interview1" layoutX="24.0" layoutY="143.0" promptText="Interview 1" />
+                                    <JFXDatePicker fx:id="date_interview2" layoutX="24.0" layoutY="198.0" promptText="Interview 2" />
+                                    <JFXDatePicker fx:id="date_interview3" layoutX="24.0" layoutY="256.0" promptText="Interview 3" />
+                                    <JFXDatePicker fx:id="date_offerext" layoutX="24.0" layoutY="310.0" promptText="Offer extended" />
+                                    <JFXDatePicker fx:id="date_accept" layoutX="24.0" layoutY="365.0" promptText="Accept/Reject" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -65,22 +65,22 @@
                      </tabs>
                   </JFXTabPane>
                </children></AnchorPane>
-            <AnchorPane id="anchorpane_right" layoutX="234.0" layoutY="11.0" prefHeight="540.0" prefWidth="900.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <AnchorPane fx:id="anchorpane_right" layoutX="234.0" layoutY="11.0" prefHeight="540.0" prefWidth="900.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="235.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                <children>
-                  <TableView id="tblview" layoutX="5.0" layoutY="4.0" prefHeight="530.0" prefWidth="890.0">
+                  <TableView fx:id="tblview" layoutX="5.0" layoutY="4.0" prefHeight="530.0" prefWidth="890.0">
                     <columns>
-                      <TableColumn id="column_id" prefWidth="40.0" text="id" />
-                      <TableColumn id="column_company" text="company" />
-                        <TableColumn id="column_position" text="position" />
-                        <TableColumn id="column_location" text="location" />
-                        <TableColumn id="column_industry" text="industry" />
-                        <TableColumn id="column_notes" prefWidth="120.0" text="notes" />
-                        <TableColumn id="column_applied" prefWidth="50.0" text="applied" />
-                        <TableColumn id="column_interview1" prefWidth="70.0" text="interview 1" />
-                        <TableColumn id="column_interview2" prefWidth="70.0" text="interview 2" />
-                        <TableColumn id="column_interview3" prefWidth="70.0" text="interview 3" />
-                        <TableColumn id="column_offerext" minWidth="6.4000244140625" prefWidth="70.0" text="offer extended" />
-                        <TableColumn id="column_accept" prefWidth="77.59995117187498" text="accept/reject" />
+                      <TableColumn fx:id="column_id" prefWidth="40.0" text="id" />
+                      <TableColumn fx:id="column_company" text="company" />
+                        <TableColumn fx:id="column_position" text="position" />
+                        <TableColumn fx:id="column_location" text="location" />
+                        <TableColumn fx:id="column_industry" text="industry" />
+                        <TableColumn fx:id="column_notes" prefWidth="120.0" text="notes" />
+                        <TableColumn fx:id="column_applied" prefWidth="50.0" text="applied" />
+                        <TableColumn fx:id="column_interview1" prefWidth="70.0" text="interview 1" />
+                        <TableColumn fx:id="column_interview2" prefWidth="70.0" text="interview 2" />
+                        <TableColumn fx:id="column_interview3" prefWidth="70.0" text="interview 3" />
+                        <TableColumn fx:id="column_offerext" minWidth="6.4000244140625" prefWidth="70.0" text="offer extended" />
+                        <TableColumn fx:id="column_accept" prefWidth="77.59995117187498" text="accept/reject" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

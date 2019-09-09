@@ -35,8 +35,8 @@
 }
 
 .jfx-button {
-    .fx-opacity: 0.9;
-    .fx-text-fill: white;
+    -fx-opacity: 0.9;
+    -fx-text-fill: white;
 }
 
 .jfx-button:hover {
