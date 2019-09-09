@@ -2,6 +2,7 @@ package com.github.japanesecoffee.jobapplicationtracker;
 
 import com.jfoenix.controls.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
@@ -136,8 +137,29 @@ public class TableController implements Initializable {
     @FXML
     private TableColumn<Progress, Date> column_accept;
 
+    private FXMLLoader loader;
+    private String query, company, position, location, industry, notes;
+    private Date applied, interview1, interview2, interview3, offer_extended, acceptedOrRejected;
+    Data dataObject;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dataObject = new Data();
 
+        btn_save.setOnAction(e->{
+            save();
+        });
+    }
+
+    private void save() {
+        company = txt_company.getText();
+        position = txt_position.getText();
+        location = txt_location.getText();
+        industry = txt_industry.getText();
+        notes = txt_notes.getText();
+
+        query = "INSERT INTO job_entry VALUES (null, '"+company+"', '"+position+"', '"+location+"', '"+
+                industry+"', '"+notes+"');";
+        dataObject.addJobEntry(query);
     }
 }
