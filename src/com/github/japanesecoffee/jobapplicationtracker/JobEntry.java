@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 import java.sql.*;
 
 public class JobEntry {
-	private final IntegerProperty job_entry_id;
+//	private final IntegerProperty job_entry_id;
 	private final StringProperty company;
 	private final StringProperty position;
 	private final StringProperty location;
@@ -15,8 +15,8 @@ public class JobEntry {
 	private final StringProperty notes;
 //	private Progress progressBar;
 
-	public JobEntry(IntegerProperty job_entry_id, String company, String position, String location, String industry, String notes) {
-		this.job_entry_id = job_entry_id;
+	public JobEntry(String company, String position, String location, String industry, String notes) {
+//		this.job_entry_id = job_entry_id;
 		this.company = new SimpleStringProperty(company);
 		this.position = new SimpleStringProperty(position);
 		this.location = new SimpleStringProperty(location);
@@ -25,9 +25,9 @@ public class JobEntry {
 //		this.progressBar = progressBar;
 	}
 
-	public IntegerProperty getJob_entry_id() {
-		return job_entry_id;
-	}
+//	public IntegerProperty getJob_entry_id() {
+//		return job_entry_id;
+//	}
 
 	public StringProperty getCompany() {
 		return company;

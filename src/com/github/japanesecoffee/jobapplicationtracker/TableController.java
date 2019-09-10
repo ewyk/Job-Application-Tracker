@@ -151,6 +151,20 @@ public class TableController implements Initializable {
         });
     }
 
+    private void initTable() {
+        column_company.setCellValueFactory(cell->cell.getValue().getCompany());
+        column_position.setCellValueFactory(cell->cell.getValue().getPosition());
+        column_location.setCellValueFactory(cell->cell.getValue().getLocation());
+        column_industry.setCellValueFactory(cell->cell.getValue().getIndustry());
+        column_notes.setCellValueFactory(cell->cell.getValue().getNotes());
+    }
+
+    private void refresh() {
+        initTable();
+        query = "SELECT a.company, a.position, a.location, a.industry, a.notes FROM job_entry as a;";
+        tblview.setItems(dataObject.printTable(query));
+    }
+
     private void save() {
         company = txt_company.getText();
         position = txt_position.getText();
@@ -161,5 +175,13 @@ public class TableController implements Initializable {
         query = "INSERT INTO job_entry VALUES (null, '"+company+"', '"+position+"', '"+location+"', '"+
                 industry+"', '"+notes+"');";
         dataObject.addJobEntry(query);
+
+        txt_company.setText("");
+        txt_position.setText("");
+        txt_location.setText("");
+        txt_industry.setText("");
+        txt_notes.setText("");
+
+        refresh();
     }
 }

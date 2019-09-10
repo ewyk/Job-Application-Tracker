@@ -1,5 +1,8 @@
 package com.github.japanesecoffee.jobapplicationtracker;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class Data {
@@ -55,22 +58,20 @@ public class Data {
     }
 
     //prints all entries within the job entry table
-    public void printTable() {
+    public ObservableList<JobEntry> printTable(String query) {
+        ObservableList list = FXCollections.observableArrayList();
         try(Connection connect = DriverManager.getConnection("jdbc:sqlite:jobs.sqlite");
-            Statement sqlStmt = connect.createStatement();
-            ResultSet results = sqlStmt.executeQuery("SELECT * FROM job_entry");
+            PreparedStatement sqlStmt = connect.prepareStatement(query);
+            ResultSet results = sqlStmt.executeQuery();
         ) {
             while(results.next()) {
-                System.out.println(results.getInt("job_entry_id") + " "
-                        + results.getString("company") + " "
-                        + results.getString("position") + " "
-                        + results.getString("location") + " "
-                        + results.getString("industry") + " "
-                        + results.getString("notes") + " ");
+                list.add(new JobEntry(results.getString(1), results.getString(2),
+                        results.getString(3), results.getString(4), results.getString(5)));
             }
         }
         catch(SQLException e) {
             System.out.println(e.getMessage());
         }
+        return list;
     }
 }
