@@ -51,7 +51,7 @@
                           <content>
                             <AnchorPane fx:id="anchorpane_progress" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXToggleButton fx:id="toggle_application" layoutX="16.0" layoutY="14.0" text="Rejected" />
+                                    <JFXToggleButton fx:id="toggle_rejected" layoutX="47.0" layoutY="14.0" text="Rejected" />
                                     <JFXDatePicker fx:id="date_responded" layoutX="24.0" layoutY="143.0" promptText="Date Responded" />
                                  </children>
                               </AnchorPane>
@@ -64,7 +64,7 @@
                <children>
                   <TableView fx:id="tblview" layoutX="5.0" layoutY="4.0" prefHeight="530.0" prefWidth="890.0">
                     <columns>
-                      <TableColumn fx:id="column_id" prefWidth="40.0" text="#" />
+                      <TableColumn fx:id="column_num" prefWidth="40.0" text="#" />
                       <TableColumn fx:id="column_company" prefWidth="130.0" text="company" />
                         <TableColumn fx:id="column_position" prefWidth="130.0" text="position" />
                         <TableColumn fx:id="column_location" prefWidth="130.0" text="location" />

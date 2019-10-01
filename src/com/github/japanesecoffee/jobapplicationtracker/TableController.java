@@ -1,6 +1,7 @@
 package com.github.japanesecoffee.jobapplicationtracker;
 
 import com.jfoenix.controls.*;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -75,25 +76,10 @@ public class TableController implements Initializable {
     private AnchorPane anchorpane_progress;
 
     @FXML
-    private JFXToggleButton toggle_application;
+    private JFXToggleButton toggle_rejected;
 
     @FXML
-    private JFXDatePicker date_applied;
-
-    @FXML
-    private JFXDatePicker date_interview1;
-
-    @FXML
-    private JFXDatePicker date_interview2;
-
-    @FXML
-    private JFXDatePicker date_interview3;
-
-    @FXML
-    private JFXDatePicker date_offerext;
-
-    @FXML
-    private JFXDatePicker date_accept;
+    private JFXDatePicker date_responded;
 
     @FXML
     private AnchorPane anchorpane_right;
@@ -102,7 +88,7 @@ public class TableController implements Initializable {
     private TableView<JobEntry> tblview;
 
     @FXML
-    private TableColumn<JobEntry, Integer> column_id;
+    private TableColumn<JobEntry, Integer> column_num;
 
     @FXML
     private TableColumn<JobEntry, String> column_company;
@@ -120,26 +106,12 @@ public class TableController implements Initializable {
     private TableColumn<JobEntry, String> column_notes;
 
     @FXML
-    private TableColumn<Progress, Date> column_applied;
-
-    @FXML
-    private TableColumn<Progress, Date> column_interview1;
-
-    @FXML
-    private TableColumn<Progress, Date> column_interview2;
-
-    @FXML
-    private TableColumn<Progress, Date> column_interview3;
-
-    @FXML
-    private TableColumn<Progress, Date> column_offerext;
-
-    @FXML
-    private TableColumn<Progress, Date> column_accept;
+    private TableColumn<JobEntry, Date> column_date_responded;
 
     private FXMLLoader loader;
+    private Integer number;
     private String query, company, position, location, industry, notes;
-    private Date applied, interview1, interview2, interview3, offer_extended, acceptedOrRejected;
+    private Date dateResponded;
     Data dataObject;
 
     @Override
@@ -152,16 +124,18 @@ public class TableController implements Initializable {
     }
 
     private void initTable() {
+//        column_num.setCellValueFactory(cell->cell.getValue().getNumber());
         column_company.setCellValueFactory(cell->cell.getValue().getCompany());
         column_position.setCellValueFactory(cell->cell.getValue().getPosition());
         column_location.setCellValueFactory(cell->cell.getValue().getLocation());
         column_industry.setCellValueFactory(cell->cell.getValue().getIndustry());
         column_notes.setCellValueFactory(cell->cell.getValue().getNotes());
+        column_date_responded.setCellValueFactory(cell-> (ObservableValue<Date>) cell.getValue().getDateResponded());
     }
 
     private void refresh() {
         initTable();
-        query = "SELECT a.company, a.position, a.location, a.industry, a.notes FROM job_entry as a;";
+        query = "SELECT a.number, a.company, a.position, a.location, a.industry, a.notes, a.date_responded FROM job_entry as a;";
         tblview.setItems(dataObject.printTable(query));
     }
 
