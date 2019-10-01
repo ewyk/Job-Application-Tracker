@@ -51,13 +51,8 @@
                           <content>
                             <AnchorPane fx:id="anchorpane_progress" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <JFXToggleButton fx:id="toggle_application" layoutX="16.0" layoutY="14.0" text="Application Finished" />
-                                    <JFXDatePicker fx:id="date_applied" layoutX="24.0" layoutY="83.0" promptText="Applied" />
-                                    <JFXDatePicker fx:id="date_interview1" layoutX="24.0" layoutY="143.0" promptText="Interview 1" />
-                                    <JFXDatePicker fx:id="date_interview2" layoutX="24.0" layoutY="198.0" promptText="Interview 2" />
-                                    <JFXDatePicker fx:id="date_interview3" layoutX="24.0" layoutY="256.0" promptText="Interview 3" />
-                                    <JFXDatePicker fx:id="date_offerext" layoutX="24.0" layoutY="310.0" promptText="Offer extended" />
-                                    <JFXDatePicker fx:id="date_accept" layoutX="24.0" layoutY="365.0" promptText="Accept/Reject" />
+                                    <JFXToggleButton fx:id="toggle_application" layoutX="16.0" layoutY="14.0" text="Rejected" />
+                                    <JFXDatePicker fx:id="date_responded" layoutX="24.0" layoutY="143.0" promptText="Date Responded" />
                                  </children>
                               </AnchorPane>
                           </content>
@@ -69,18 +64,13 @@
                <children>
                   <TableView fx:id="tblview" layoutX="5.0" layoutY="4.0" prefHeight="530.0" prefWidth="890.0">
                     <columns>
-                      <TableColumn fx:id="column_id" prefWidth="40.0" text="id" />
-                      <TableColumn fx:id="column_company" text="company" />
-                        <TableColumn fx:id="column_position" text="position" />
-                        <TableColumn fx:id="column_location" text="location" />
-                        <TableColumn fx:id="column_industry" text="industry" />
-                        <TableColumn fx:id="column_notes" prefWidth="120.0" text="notes" />
-                        <TableColumn fx:id="column_applied" prefWidth="50.0" text="applied" />
-                        <TableColumn fx:id="column_interview1" prefWidth="70.0" text="interview 1" />
-                        <TableColumn fx:id="column_interview2" prefWidth="70.0" text="interview 2" />
-                        <TableColumn fx:id="column_interview3" prefWidth="70.0" text="interview 3" />
-                        <TableColumn fx:id="column_offerext" minWidth="6.4000244140625" prefWidth="70.0" text="offer extended" />
-                        <TableColumn fx:id="column_accept" prefWidth="77.59995117187498" text="accept/reject" />
+                      <TableColumn fx:id="column_id" prefWidth="40.0" text="#" />
+                      <TableColumn fx:id="column_company" prefWidth="130.0" text="company" />
+                        <TableColumn fx:id="column_position" prefWidth="130.0" text="position" />
+                        <TableColumn fx:id="column_location" prefWidth="130.0" text="location" />
+                        <TableColumn fx:id="column_industry" prefWidth="130.0" text="industry" />
+                        <TableColumn fx:id="column_notes" prefWidth="200.0" text="notes" />
+                        <TableColumn fx:id="column_date_responded" prefWidth="130.0" text="date responded" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
