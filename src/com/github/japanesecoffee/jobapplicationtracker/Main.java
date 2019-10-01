@@ -1,6 +1,5 @@
 package com.github.japanesecoffee.jobapplicationtracker;
 
-import db.SQLiteConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

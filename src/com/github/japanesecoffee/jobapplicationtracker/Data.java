@@ -65,8 +65,8 @@ public class Data {
             ResultSet results = sqlStmt.executeQuery();
         ) {
             while(results.next()) {
-                list.add(new JobEntry(results.getString(1), results.getString(2),
-                        results.getString(3), results.getString(4), results.getString(5)));
+                list.add(new JobEntry(number, results.getString(1), results.getString(2),
+                        results.getString(3), results.getString(4), results.getString(5), dateResponded));
             }
         }
         catch(SQLException e) {
