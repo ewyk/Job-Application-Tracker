@@ -89,7 +89,7 @@ public class TableController implements Initializable {
     private TableView<JobEntry> tblview;
 
     @FXML
-    private TableColumn<JobEntry, Integer> column_num;
+    private TableColumn<JobEntry, Number> column_num;
 
     @FXML
     private TableColumn<JobEntry, String> column_company;
@@ -110,7 +110,6 @@ public class TableController implements Initializable {
     private TableColumn<JobEntry, String> column_date_responded;
 
     private FXMLLoader loader;
-    private Integer number;
     private String query, company, position, location, industry, notes, dateResponded;
     Data dataObject;
 
@@ -121,10 +120,12 @@ public class TableController implements Initializable {
         btn_save.setOnAction(e->{
             save();
         });
+
+        refresh();
     }
 
     private void initTable() {
-//        column_num.setCellValueFactory(cell->cell.getValue().getNumber());
+        column_num.setCellValueFactory(cell->cell.getValue().getNumber());
         column_company.setCellValueFactory(cell->cell.getValue().getCompany());
         column_position.setCellValueFactory(cell->cell.getValue().getPosition());
         column_location.setCellValueFactory(cell->cell.getValue().getLocation());
