@@ -23,7 +23,7 @@ public class Data {
             System.out.println(e.getMessage());
         }
     }
-    //TODO: might have to make separate update methods for each column
+    //updates entries in job entry table
     public void updateJobEntry(int id, String company, String position, String location, String industry, String notes) {
         try(Connection connect = DriverManager.getConnection("jdbc:sqlite:jobs.sqlite");
             PreparedStatement prepStmt = connect.prepareStatement("UPDATE job_entry SET company = ? , " +
@@ -65,8 +65,8 @@ public class Data {
             ResultSet results = sqlStmt.executeQuery();
         ) {
             while(results.next()) {
-                list.add(new JobEntry(number, results.getString(1), results.getString(2),
-                        results.getString(3), results.getString(4), results.getString(5), dateResponded));
+                list.add(new JobEntry(results.getInt(1), results.getString(2), results.getString(3),
+                        results.getString(4), results.getString(5), results.getString(6), results.getString(7)));
             }
         }
         catch(SQLException e) {

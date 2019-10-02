@@ -14,16 +14,16 @@ public class JobEntry {
 	private final StringProperty location;
 	private final StringProperty industry;
 	private final StringProperty notes;
-	private final Date dateResponded;
+	private final StringProperty dateResponded;
 
-	public JobEntry(Integer number, String company, String position, String location, String industry, String notes, Date dateResponded) {
+	public JobEntry(Integer number, String company, String position, String location, String industry, String notes, String dateResponded) {
         this.number = new SimpleIntegerProperty(number);
 		this.company = new SimpleStringProperty(company);
 		this.position = new SimpleStringProperty(position);
 		this.location = new SimpleStringProperty(location);
 		this.industry = new SimpleStringProperty(industry);
 		this.notes = new SimpleStringProperty(notes);
-        this.dateResponded = dateResponded;
+        this.dateResponded = new SimpleStringProperty(dateResponded);
     }
 
 	public IntegerProperty getNumber() {
@@ -50,7 +50,7 @@ public class JobEntry {
 		return notes;
 	}
 
-	public Date getDateResponded() {
+	public StringProperty getDateResponded() {
 		return dateResponded;
 	}
 
