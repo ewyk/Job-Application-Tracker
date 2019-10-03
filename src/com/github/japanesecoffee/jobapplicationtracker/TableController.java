@@ -1,7 +1,7 @@
 package com.github.japanesecoffee.jobapplicationtracker;
 
 import com.jfoenix.controls.*;
-import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,10 +11,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class TableController implements Initializable {
@@ -122,6 +122,25 @@ public class TableController implements Initializable {
         });
 
         refresh();
+
+        tblview.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                JobEntry job = tblview.getSelectionModel().getSelectedItem();
+                txt_company.setText(job.getCompany().get());
+                txt_position.setText(job.getPosition().get());
+                txt_location.setText(job.getLocation().get());
+                txt_industry.setText(job.getIndustry().get());
+                txt_notes.setText(job.getNotes().get());
+                //dateResponded is returned as a String and needs to be parsed
+                try {
+                    date_responded.setValue(LocalDate.parse(job.getDateResponded().get()));
+                }
+                catch (Exception e) {
+                    date_responded.setValue(null);
+                }
+            }
+        });
     }
 
     private void initTable() {
