@@ -39,10 +39,9 @@
                                     <JFXTextField fx:id="txt_location" layoutX="37.0" layoutY="192.0" promptText="Location" />
                                     <JFXTextField fx:id="txt_industry" layoutX="37.0" layoutY="258.0" promptText="Industry" />
                                     <JFXTextField fx:id="txt_notes" layoutX="37.0" layoutY="329.0" promptText="Notes" />
-                                    <JFXButton fx:id="btn_new" buttonType="RAISED" layoutY="409.0" text="New" />
-                                    <JFXButton fx:id="btn_save" buttonType="RAISED" layoutX="47.0" layoutY="409.0" text="Save" />
-                                    <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="95.0" layoutY="409.0" text="Update" />
-                                    <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="159.0" layoutY="409.0" text="Delete" />
+                                    <JFXButton fx:id="btn_add" buttonType="RAISED" layoutX="18.0" layoutY="409.0" text="Add" />
+                                    <JFXButton fx:id="btn_update" buttonType="RAISED" layoutX="77.0" layoutY="409.0" text="Update" />
+                                    <JFXButton fx:id="btn_delete" buttonType="RAISED" layoutX="147.0" layoutY="409.0" text="Delete" />
                                  </children>
                               </AnchorPane>
                           </content>

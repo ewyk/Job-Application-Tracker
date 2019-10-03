@@ -17,11 +17,7 @@
     -fx-background-color: #FFEADC;
 }
 
-#btn_new {
-    -fx-background-color: #B6CCD6;
-}
-
-#btn_save {
+#btn_add {
 
     -fx-background-color: #ABC5D1;
 }

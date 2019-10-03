@@ -59,10 +59,7 @@ public class TableController implements Initializable {
     private JFXTextField txt_notes;
 
     @FXML
-    private JFXButton btn_new;
-
-    @FXML
-    private JFXButton btn_save;
+    private JFXButton btn_add;
 
     @FXML
     private JFXButton btn_update;
@@ -118,7 +115,7 @@ public class TableController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dataObject = new Data();
 
-        btn_save.setOnAction(e->{
+        btn_add.setOnAction(e->{
             save();
         });
 
