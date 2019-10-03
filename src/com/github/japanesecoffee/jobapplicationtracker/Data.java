@@ -15,7 +15,6 @@ public class Data {
 
             System.out.println("Connected to database");
 
-//			prepStmt.executeUpdate();
             int numRows = prepStmt.executeUpdate();
             System.out.println(numRows + " entry added");
         }
@@ -28,8 +27,6 @@ public class Data {
         try(Connection connect = DriverManager.getConnection("jdbc:sqlite:jobs.sqlite");
             PreparedStatement prepStmt = connect.prepareStatement(query);
         ) {
-
-//            prepStmt.executeUpdate();
             int numRows = prepStmt.executeUpdate();
             System.out.println(numRows + " entry updated");
         }
@@ -38,11 +35,10 @@ public class Data {
         }
     }
     //deletes entries in job entry table
-    public void deleteJobEntry(int job_entry_id) {
+    public void deleteJobEntry(String query) {
         try(Connection connect = DriverManager.getConnection("jdbc:sqlite:jobs.sqlite");
-            PreparedStatement prepStmt = connect.prepareStatement("DELETE FROM job_entry WHERE job_entry_id = ?");
+            PreparedStatement prepStmt = connect.prepareStatement(query);
         ) {
-            prepStmt.setInt(1, job_entry_id);
 
             int numRows = prepStmt.executeUpdate();
             System.out.println(numRows + " entry deleted");

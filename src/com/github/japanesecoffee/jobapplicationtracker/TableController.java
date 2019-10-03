@@ -126,6 +126,10 @@ public class TableController implements Initializable {
             update();
         });
 
+        btn_delete.setOnAction(e->{
+            delete();
+        });
+
         refresh();
 
         tblview.setOnMouseClicked(new EventHandler<MouseEvent>() {
@@ -201,6 +205,14 @@ public class TableController implements Initializable {
         query = "UPDATE job_entry SET company='"+company+"', position='"+position+"', location='"+location+"', " +
                 "industry='"+ industry+"', notes='"+notes+"', date_responded='"+dateResponded+"' WHERE job_entry_id="+number+"";
         dataObject.updateJobEntry(query);
+
+        setEmptyTextfields();
+        refresh();
+    }
+
+    private void delete() {
+        query = "DELETE FROM job_entry WHERE job_entry_id="+number+"";
+        dataObject.deleteJobEntry(query);
 
         setEmptyTextfields();
         refresh();
