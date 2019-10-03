@@ -24,19 +24,14 @@ public class Data {
         }
     }
     //updates entries in job entry table
-    public void updateJobEntry(int id, String company, String position, String location, String industry, String notes) {
+    public void updateJobEntry(String query) {
         try(Connection connect = DriverManager.getConnection("jdbc:sqlite:jobs.sqlite");
-            PreparedStatement prepStmt = connect.prepareStatement("UPDATE job_entry SET company = ? , " +
-                    "position = ? , " + "location = ? , " + "industry = ? , " + "notes = ? " + "WHERE job_entry_id = ?");
+            PreparedStatement prepStmt = connect.prepareStatement(query);
         ) {
 
-            prepStmt.setString(1, company);
-            prepStmt.setString(2, position);
-            prepStmt.setString(3, location);
-            prepStmt.setString(4, industry);
-            prepStmt.setString(5, notes);
-            prepStmt.setInt(6, id);
-            prepStmt.executeUpdate();
+//            prepStmt.executeUpdate();
+            int numRows = prepStmt.executeUpdate();
+            System.out.println(numRows + " entry updated");
         }
         catch(SQLException e) {
             System.out.println(e.getMessage());

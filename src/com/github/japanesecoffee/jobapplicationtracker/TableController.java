@@ -111,6 +111,7 @@ public class TableController implements Initializable {
 
     private FXMLLoader loader;
     private String query, company, position, location, industry, notes, dateResponded;
+    private Integer number;
     Data dataObject;
 
     @Override
@@ -121,12 +122,17 @@ public class TableController implements Initializable {
             save();
         });
 
+        btn_update.setOnAction(e->{
+            update();
+        });
+
         refresh();
 
         tblview.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 JobEntry job = tblview.getSelectionModel().getSelectedItem();
+                number = job.getNumber().get();
                 txt_company.setText(job.getCompany().get());
                 txt_position.setText(job.getPosition().get());
                 txt_location.setText(job.getLocation().get());
@@ -159,7 +165,7 @@ public class TableController implements Initializable {
         tblview.setItems(dataObject.printTable(query));
     }
 
-    private void save() {
+    private void getTextfields() {
         company = txt_company.getText();
         position = txt_position.getText();
         location = txt_location.getText();
@@ -167,19 +173,36 @@ public class TableController implements Initializable {
         notes = txt_notes.getText();
         //datepicker value parsed as String because SQLite stores date as String value
         dateResponded = String.valueOf(date_responded.getValue());
+    }
 
-        query = "INSERT INTO job_entry VALUES (null, '"+company+"', '"+position+"', '"+location+"', '"+
-                industry+"', '"+notes+"', '"+dateResponded+"');";
-        dataObject.addJobEntry(query);
-
-        //resets textfields to empty
+    private void setEmptyTextfields() {
         txt_company.setText("");
         txt_position.setText("");
         txt_location.setText("");
         txt_industry.setText("");
         txt_notes.setText("");
         date_responded.setValue(null);
+    }
 
+    private void save() {
+        getTextfields();
+
+        query = "INSERT INTO job_entry VALUES (null, '"+company+"', '"+position+"', '"+location+"', '"+
+                industry+"', '"+notes+"', '"+dateResponded+"');";
+        dataObject.addJobEntry(query);
+
+        setEmptyTextfields();
+        refresh();
+    }
+
+    private void update() {
+        getTextfields();
+
+        query = "UPDATE job_entry SET company='"+company+"', position='"+position+"', location='"+location+"', " +
+                "industry='"+ industry+"', notes='"+notes+"', date_responded='"+dateResponded+"' WHERE job_entry_id="+number+"";
+        dataObject.updateJobEntry(query);
+
+        setEmptyTextfields();
         refresh();
     }
 }
