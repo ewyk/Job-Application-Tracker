@@ -1,5 +1,5 @@
 #pane_top {
-    -fx-background-color: #FFEADC;
+    -fx-background-color: #769ECB;
 }
 
 #label_title {
@@ -10,24 +10,23 @@
 }
 
 .jfx-tab-pane .headers-region {
-    -fx-background-color: #FFEADC;
+    -fx-background-color: #C8D6B9;
 }
 
 .jfx-tab-pane .tab-header-background {
-    -fx-background-color: #FFEADC;
+    -fx-background-color: #C8D6B9;
 }
 
 #btn_add {
-
-    -fx-background-color: #ABC5D1;
+    -fx-background-color: #ADC4CE;
 }
 
 #btn_update {
-    -fx-background-color: #A1BDCB;
+    -fx-background-color: #ADC4CE;
 }
 
 #btn_delete {
-    -fx-background-color: #96B6C5;
+    -fx-background-color: #ADC4CE;
 }
 
 .jfx-button {
