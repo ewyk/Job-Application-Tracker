@@ -13,7 +13,7 @@ public class Data {
             PreparedStatement prepStmt = connect.prepareStatement(query);
         ) {
 
-            System.out.println("Connected to database");
+//            System.out.println("Connected to database");
 
             int numRows = prepStmt.executeUpdate();
             System.out.println(numRows + " entry added");
@@ -57,7 +57,8 @@ public class Data {
         ) {
             while(results.next()) {
                 list.add(new JobEntry(results.getInt(1), results.getString(2), results.getString(3),
-                        results.getString(4), results.getString(5), results.getString(6), results.getString(7)));
+                        results.getString(4), results.getString(5), results.getString(6),
+                        results.getString(7), results.getBoolean(8)));
             }
         }
         catch(SQLException e) {

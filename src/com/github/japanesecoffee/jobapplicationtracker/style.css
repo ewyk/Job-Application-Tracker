@@ -37,3 +37,11 @@
 .jfx-button:hover {
     -fx-opacity: 1;
 }
+
+.jfx-toggle-button {
+    -jfx-toggle-color: #799FCB;
+}
+
+.jfx-date-picker {
+    -jfx-default-color: #799FCB;
+}

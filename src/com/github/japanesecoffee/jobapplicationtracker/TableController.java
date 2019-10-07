@@ -106,9 +106,12 @@ public class TableController implements Initializable {
     @FXML
     private TableColumn<JobEntry, String> column_date_responded;
 
+//    @FXML
+//    private TableColumn<JobEntry, Boolean> column_rejected;
+
     private FXMLLoader loader;
     private String query, company, position, location, industry, notes, dateResponded;
-    private Integer number;
+    private Integer number, rejected;
     Data dataObject;
 
     @Override
@@ -127,8 +130,13 @@ public class TableController implements Initializable {
             delete();
         });
 
+//        toggle_rejected.setOnAction(e->{
+//            toggle();
+//        });
+
         refresh();
 
+        //fills form with info from the selected tableview entry
         tblview.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
@@ -146,6 +154,12 @@ public class TableController implements Initializable {
                 catch (Exception e) {
                     date_responded.setValue(null);
                 }
+                if(job.getRejected().get()) {
+                    toggle_rejected.setSelected(true);
+                }
+                else {
+                    toggle_rejected.setSelected(false);
+                }
             }
         });
     }
@@ -158,11 +172,12 @@ public class TableController implements Initializable {
         column_industry.setCellValueFactory(cell->cell.getValue().getIndustry());
         column_notes.setCellValueFactory(cell->cell.getValue().getNotes());
         column_date_responded.setCellValueFactory(cell->cell.getValue().getDateResponded());
+//        column_rejected.setCellValueFactory(cell->cell.getValue().getRejected());
     }
 
     private void refresh() {
         initTable();
-        query = "SELECT a.job_entry_id, a.company, a.position, a.location, a.industry, a.notes, a.date_responded FROM job_entry as a;";
+        query = "SELECT a.job_entry_id, a.company, a.position, a.location, a.industry, a.notes, a.date_responded, a.rejected FROM job_entry as a;";
         tblview.setItems(dataObject.printTable(query));
     }
 
@@ -174,6 +189,8 @@ public class TableController implements Initializable {
         notes = txt_notes.getText();
         //datepicker value parsed as String because SQLite stores date as String value
         dateResponded = String.valueOf(date_responded.getValue());
+        //SQLite stores boolean as 0 or 1
+        rejected = toggle_rejected.isSelected() ? 1 : 0;
     }
 
     private void setEmptyTextfields() {
@@ -183,13 +200,14 @@ public class TableController implements Initializable {
         txt_industry.setText("");
         txt_notes.setText("");
         date_responded.setValue(null);
+        toggle_rejected.setSelected(false);
     }
 
     private void save() {
         getTextfields();
 
         query = "INSERT INTO job_entry VALUES (null, '"+company+"', '"+position+"', '"+location+"', '"+
-                industry+"', '"+notes+"', '"+dateResponded+"');";
+                industry+"', '"+notes+"', '"+dateResponded+"', '"+rejected+"');";
         dataObject.addJobEntry(query);
 
         setEmptyTextfields();
@@ -200,7 +218,7 @@ public class TableController implements Initializable {
         getTextfields();
 
         query = "UPDATE job_entry SET company='"+company+"', position='"+position+"', location='"+location+"', " +
-                "industry='"+ industry+"', notes='"+notes+"', date_responded='"+dateResponded+"' WHERE job_entry_id="+number+"";
+                "industry='"+ industry+"', notes='"+notes+"', date_responded='"+dateResponded+"', rejected='"+rejected+"' WHERE job_entry_id="+number+"";
         dataObject.updateJobEntry(query);
 
         setEmptyTextfields();
@@ -214,4 +232,10 @@ public class TableController implements Initializable {
         setEmptyTextfields();
         refresh();
     }
+
+//    private void toggle() {
+//        if(toggle_rejected.isSelected()) {
+//
+//        }
+//    }
 }
