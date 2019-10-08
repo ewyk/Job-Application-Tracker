@@ -137,29 +137,26 @@ public class TableController implements Initializable {
         refresh();
 
         //fills form with info from the selected tableview entry
-        tblview.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                JobEntry job = tblview.getSelectionModel().getSelectedItem();
-                number = job.getNumber().get();
-                txt_company.setText(job.getCompany().get());
-                txt_position.setText(job.getPosition().get());
-                txt_location.setText(job.getLocation().get());
-                txt_industry.setText(job.getIndustry().get());
-                txt_notes.setText(job.getNotes().get());
-                //dateResponded is returned as a String and needs to be parsed
-                try {
-                    date_responded.setValue(LocalDate.parse(job.getDateResponded().get()));
-                }
-                catch (Exception e) {
-                    date_responded.setValue(null);
-                }
-                if(job.getRejected().get()) {
-                    toggle_rejected.setSelected(true);
-                }
-                else {
-                    toggle_rejected.setSelected(false);
-                }
+        tblview.setOnMouseClicked(event -> {
+            JobEntry job = tblview.getSelectionModel().getSelectedItem();
+            number = job.getNumber().get();
+            txt_company.setText(job.getCompany().get());
+            txt_position.setText(job.getPosition().get());
+            txt_location.setText(job.getLocation().get());
+            txt_industry.setText(job.getIndustry().get());
+            txt_notes.setText(job.getNotes().get());
+            //dateResponded is returned as a String and needs to be parsed
+            try {
+                date_responded.setValue(LocalDate.parse(job.getDateResponded().get()));
+            }
+            catch (Exception e) {
+                date_responded.setValue(null);
+            }
+            if(job.getRejected().get()) {
+                toggle_rejected.setSelected(true);
+            }
+            else {
+                toggle_rejected.setSelected(false);
             }
         });
     }
@@ -172,7 +169,6 @@ public class TableController implements Initializable {
         column_industry.setCellValueFactory(cell->cell.getValue().getIndustry());
         column_notes.setCellValueFactory(cell->cell.getValue().getNotes());
         column_date_responded.setCellValueFactory(cell->cell.getValue().getDateResponded());
-//        column_rejected.setCellValueFactory(cell->cell.getValue().getRejected());
         column_rejected.setCellValueFactory(cell->cell.getValue().getRejected());
     }
 
