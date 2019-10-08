@@ -68,8 +68,9 @@
                         <TableColumn fx:id="column_position" prefWidth="130.0" text="position" />
                         <TableColumn fx:id="column_location" prefWidth="130.0" text="location" />
                         <TableColumn fx:id="column_industry" prefWidth="130.0" text="industry" />
-                        <TableColumn fx:id="column_notes" prefWidth="200.0" text="notes" />
-                        <TableColumn fx:id="column_date_responded" prefWidth="130.0" text="date responded" />
+                        <TableColumn fx:id="column_notes" prefWidth="170.0" text="notes" />
+                        <TableColumn fx:id="column_date_responded" prefWidth="100.0" text="date responded" />
+                        <TableColumn fx:id="column_rejected" prefWidth="60.0" text="rejected" />
                     </columns>
                   </TableView>
                </children></AnchorPane>

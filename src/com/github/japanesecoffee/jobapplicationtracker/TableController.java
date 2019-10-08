@@ -106,8 +106,8 @@ public class TableController implements Initializable {
     @FXML
     private TableColumn<JobEntry, String> column_date_responded;
 
-//    @FXML
-//    private TableColumn<JobEntry, Boolean> column_rejected;
+    @FXML
+    private TableColumn<JobEntry, Boolean> column_rejected;
 
     private FXMLLoader loader;
     private String query, company, position, location, industry, notes, dateResponded;
@@ -173,6 +173,7 @@ public class TableController implements Initializable {
         column_notes.setCellValueFactory(cell->cell.getValue().getNotes());
         column_date_responded.setCellValueFactory(cell->cell.getValue().getDateResponded());
 //        column_rejected.setCellValueFactory(cell->cell.getValue().getRejected());
+        column_rejected.setCellValueFactory(cell->cell.getValue().getRejected());
     }
 
     private void refresh() {
@@ -222,6 +223,8 @@ public class TableController implements Initializable {
         dataObject.updateJobEntry(query);
 
         setEmptyTextfields();
+        tblview.getSelectionModel().select(null);
+        number = 0;
         refresh();
     }
 
